@@ -15,6 +15,7 @@ export default function Home() {
         useMutationGetAccessToken({
             onSuccess: (resp: GetAccessTokenResponse) => {
                 const accessToken = resp.token
+                console.log("",resp)
                 sessionStorage?.setItem("accessToken", accessToken);
                 setShowAccessToken(accessToken)
             },

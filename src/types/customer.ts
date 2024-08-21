@@ -5,8 +5,9 @@ export interface GetAccessTokenRequest {
 }
 
 export interface GetAccessTokenResponse {
-  code: string;
-  message: string;
-  token: string;
+  access_token: string;
+  expires_in: number;
+  id_token: string;
+  refresh_token: string;
 }
 
