@@ -3,7 +3,7 @@ import Image from "next/image";
 import {useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import {useMutationGetAccessToken} from "@/https/hooks/useMutationGetAccessToken";
-import {GetAccessTokenRequest, GetAccessTokenResponse} from "@/types/accessToken";
+import {GetAccessTokenResponse} from "@/types/accessToken";
 import {useMutationGetCustomer} from "@/https/hooks/useMutationGetCustomer";
 import {GetCustomerResponse} from "@/types/customer";
 
@@ -11,18 +11,18 @@ export default function Home() {
 
     const [authCode, setAuthCode] = useState<string>("")
     const [showAccessToken, setShowAccessToken] = useState<string>("")
-    const [showCustomer, setShowCustomer] = useState<any>(null)
+    const [showCustomerCid, setShowCustomerCid] = useState<string>("")
     const param = useSearchParams();
 
     const { data: customer, mutate: getCustomer } =
         useMutationGetCustomer({
             onSuccess: (resp: GetCustomerResponse) => {
                 console.log("success customer",resp)
-                setShowCustomer(resp)
+                setShowCustomerCid(resp.cid)
             },
             onError: (error) => {
                 console.log("error:", error)
-                setShowCustomer(error)
+                setShowCustomerCid(error.message + " [" + error.code + "]")
             },
         });
 
@@ -45,8 +45,7 @@ export default function Home() {
         const authCode = param.get("authCode");
         if (authCode) {
             setAuthCode(authCode)
-            const accessToken: GetAccessTokenRequest = { authCode: authCode }
-            getAccessToken(accessToken);
+            getAccessToken({ authCode: authCode });
         }
     }, []);
 
@@ -54,8 +53,7 @@ export default function Home() {
       <div className="w-full h-screen flex flex-col justify-center items-center">
           <div>Auth Code: {authCode}</div>
           <div>Access Token: {showAccessToken}</div>
-          <div>CID: {showCustomer.cid}</div>
-          <div>First name: {showCustomer.fullnameTH}</div>
+          <div>CID: {showCustomerCid}</div>
           <Image
               src={"/assets/logo/mini-app-logo.svg"}
               className="logo mini-app"
