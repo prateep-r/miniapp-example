@@ -13,6 +13,7 @@ class CustomerService {
         {
           headers:{
             "Authorization": "Bearer "+data.accessToken,
+              "Content-Type": "application/json"
           }
         }
     );
