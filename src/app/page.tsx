@@ -11,7 +11,7 @@ export default function Home() {
     const [showAccessToken, setShowAccessToken] = useState<string>("")
     const param = useSearchParams();
 
-    const { data , mutate: getAccessToken } =
+    const { data: accessToken, mutate: getAccessToken } =
         useMutationGetAccessToken({
             onSuccess: (resp: GetAccessTokenResponse) => {
                 const accessToken = resp.token
@@ -27,8 +27,7 @@ export default function Home() {
         const authCode = param.get("authCode");
         if (authCode) {
             setAuthCode(authCode)
-
-
+            getAccessToken({ authCode: authCode });
         }
     }, []);
 
