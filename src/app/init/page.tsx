@@ -58,23 +58,24 @@ export default function Init() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
-      {status.isLoaded ? (
-        <Image
-          className="animate-spin"
-          src={"/assets/icons/spinner.svg"}
-          width={16}
-          height={16}
-          alt="loading"
-        />
-      ) : null}
-      <p className="pt-[32px]">Authorization</p>
-      <p className="pt-[32px]">{status.status}</p>
-      {(status.errorCode || status.errorDesc) && (
-        <p className="text-red-500">
-          {status.errorCode}:{status.errorDesc}
-        </p>
-      )}
-    </div>
+      <div className="w-full h-screen flex flex-col justify-center items-center">
+          <div>Client ID: "78bbe546-b209-4667-9f40-49e3a1f6c1e6"</div>
+          {status.isLoaded ? (
+              <Image
+                  className="animate-spin"
+                  src={"/assets/icons/spinner.svg"}
+                  width={16}
+                  height={16}
+                  alt="loading"
+              />
+          ) : null}
+          <p className="pt-[32px]">Authorization</p>
+          <p className="pt-[32px]">{status.status}</p>
+          {(status.errorCode || status.errorDesc) && (
+              <p className="text-red-500">
+                  {status.errorCode}:{status.errorDesc}
+              </p>
+          )}
+      </div>
   );
 }
