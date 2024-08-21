@@ -28,8 +28,8 @@ export default function RootLayout({
         <JSBridgeProvider>
           <div className="bg-default bg-cover bg-center">{children}</div>
         </JSBridgeProvider>
+          <VConsoleWrapper />
       </ReactQueryClientProvider>
-      <VConsoleWrapper />
       </body>
       {/*
           If you want to open the browser console to debug your Mini App in the Mini App Webview, 
@@ -39,6 +39,7 @@ export default function RootLayout({
           https://github.com/Tencent/vConsole
 
           To use VConsole, uncomment the following line: */}
+
     </html>
   );
 }

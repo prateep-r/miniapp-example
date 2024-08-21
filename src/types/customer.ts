@@ -5,10 +5,10 @@ export interface GetAccessTokenRequest {
 }
 
 export interface GetAccessTokenResponse {
-  access_token: string;
-  expires_in: number;
-  id_token: string;
-  refresh_token: string;
+  accessToken: string;
+  expiresIn: number;
+  idToken: string;
+  refreshToken: string;
   message: string;
   code: string;
 }
