@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import VConsoleWrapper from "@/app/components/VConsoleWrapper";
+import {ReactQueryClientProvider} from "@/app/components/ReactQueryClientProvider";
 
 const IBMPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -19,12 +20,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={IBMPlexSans.className}>
+      <ReactQueryClientProvider>
         <JSBridgeProvider>
           <div className="bg-default bg-cover bg-center">{children}</div>
         </JSBridgeProvider>
+      </ReactQueryClientProvider>
       </body>
       {/*
           If you want to open the browser console to debug your Mini App in the Mini App Webview, 

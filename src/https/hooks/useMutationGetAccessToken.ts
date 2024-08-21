@@ -4,7 +4,7 @@ import {
 } from "@/types/customer";
 import authenticationService from "../account/authService";
 import { ApiError } from "@/types/error";
-import {MutationObserverOptions, useMutation} from "react-query";
+import {MutationObserverOptions, useMutation, useQueryClient,} from "react-query";
 
 export const useMutationGetAccessToken = (
   props: Omit<
