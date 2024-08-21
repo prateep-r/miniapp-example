@@ -19,7 +19,7 @@ export const useMutationGetAccessToken = (
   return useMutation({
     mutationFn: async (req: GetAccessTokenRequest) => {
       const resp = await authenticationService.auth(req);
-      if (resp.status === 200 && resp.data.code === "0000") {
+      if (resp.status === 200) {
       } else {
         throw new ApiError(resp.data.message, resp.data.code);
       }
