@@ -17,6 +17,7 @@ export const useMutationGetCustomer = (
   return useMutation({
     mutationFn: async (req: GetCustomerRequest) => {
       const resp = await customerService.auth(req);
+      console.log("useMutationGetCustomer", resp);
       if (resp.status === 200) {
       } else {
         throw new ApiError(resp.data.message, resp.data.code);
