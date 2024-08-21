@@ -27,7 +27,7 @@ export default function Home() {
         const authCode = param.get("authCode");
         if (authCode) {
             setAuthCode(authCode)
-            const accessToken: GetAccessTokenRequest = { authCode: "B0dxYgXOCvK5O7Wi6CcWSNbMRbHiQZq0.uwn8byejPoSgYqZwPP1E0GMlYICrCEYaXU7ksFZ8V3k=" }
+            const accessToken: GetAccessTokenRequest = { authCode: authCode }
             getAccessToken(accessToken);
         }
     }, []);
