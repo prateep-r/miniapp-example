@@ -22,7 +22,7 @@ export default function Home() {
             },
             onError: (error) => {
                 console.log("error:", error)
-                setShowAccessToken(error.message + " [" + error.code + "]")
+                setShowCustomer(error)
             },
         });
 
