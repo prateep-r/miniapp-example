@@ -9,9 +9,9 @@ import {GetCustomerResponse} from "@/types/customer";
 
 export default function Home() {
 
-    const [authCode, setAuthCode] = useState<string>("")
-    const [showAccessToken, setShowAccessToken] = useState<string>("")
-    const [showCustomerCid, setShowCustomerCid] = useState<string>("")
+    const [authCode, setAuthCode] = useState<string>("loading...")
+    const [showAccessToken, setShowAccessToken] = useState<string>("loading...")
+    const [showCustomerCid, setShowCustomerCid] = useState<string>("loading...")
     const param = useSearchParams();
 
     const { data: customer, mutate: getCustomer } =
@@ -33,11 +33,11 @@ export default function Home() {
                 const accessToken = resp.access_token
                 sessionStorage?.setItem("accessToken", accessToken);
                 getCustomer({accessToken: accessToken})
-                setShowAccessToken(accessToken)
+                //setShowAccessToken(accessToken)
             },
             onError: (error) => {
                 console.log("error:", error)
-                setShowAccessToken(error.message + " [" + error.code + "]")
+                //setShowAccessToken(error.message + " [" + error.code + "]")
             },
         });
 
@@ -52,7 +52,7 @@ export default function Home() {
   return (
       <div className="w-full h-screen flex flex-col justify-center items-center">
           <div>Auth Code: {authCode}</div>
-          <div>Access Token: {showAccessToken}</div>
+          {/*<div>Access Token: {showAccessToken}</div>*/}
           <div>CID: {showCustomerCid}</div>
           <Image
               src={"/assets/logo/mini-app-logo.svg"}
