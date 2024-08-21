@@ -14,12 +14,13 @@ export default function Home() {
     const { data: accessToken, mutate: getAccessToken } =
         useMutationGetAccessToken({
             onSuccess: (resp: GetAccessTokenResponse) => {
+                console.log("success",resp)
                 const accessToken = resp.accessToken
-                console.log("",resp)
                 sessionStorage?.setItem("accessToken", accessToken);
                 setShowAccessToken(accessToken)
             },
             onError: (error) => {
+                console.log("error:", error)
                 setShowAccessToken(error.message + " [" + error.code + "]")
             },
         });
