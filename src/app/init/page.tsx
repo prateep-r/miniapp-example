@@ -20,6 +20,7 @@ export default function Init() {
 
   useEffect(() => {
     initAuth(
+        "78bbe546-b209-4667-9f40-49e3a1f6c1e6",
       //callback function for success
       (authorizationCode: string) => {
         /*
