@@ -1,7 +1,7 @@
 import {
   GetAccessTokenRequest,
   GetAccessTokenResponse,
-} from "@/types/customer";
+} from "@/types/accessToken";
 import { axiosOauthTokenService } from "../httpsOauthTokenService";
 
 class AuthenticationService {

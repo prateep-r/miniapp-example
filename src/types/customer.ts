@@ -1,15 +1,14 @@
 
 
-export interface GetAccessTokenRequest {
-  authCode: string;
-}
-
-export interface GetAccessTokenResponse {
+export interface GetCustomerRequest {
   accessToken: string;
-  expiresIn: number;
-  idToken: string;
-  refreshToken: string;
-  message: string;
-  code: string;
 }
 
+export interface GetCustomerResponse {
+  cid: string;
+  mobileNo: number;
+  fullnameTH: string;
+  fullnameEN: string;
+  code: string;
+  message: string;
+}
