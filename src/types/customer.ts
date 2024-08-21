@@ -9,5 +9,7 @@ export interface GetAccessTokenResponse {
   expires_in: number;
   id_token: string;
   refresh_token: string;
+  message: string;
+  code: string;
 }
 
