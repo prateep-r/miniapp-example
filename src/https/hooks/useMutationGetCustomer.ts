@@ -16,6 +16,7 @@ export const useMutationGetCustomer = (
 ) => {
   return useMutation({
     mutationFn: async (req: GetCustomerRequest) => {
+      console.log("useMutationGetCustomer start loading...");
       const resp = await customerService.auth(req);
       console.log("useMutationGetCustomer", resp);
       if (resp.status === 200) {
