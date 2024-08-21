@@ -21,7 +21,7 @@ export default function Init() {
   useEffect(() => {
     initAuth(
         "78bbe546-b209-4667-9f40-49e3a1f6c1e6",
-      "openid+offline+paotangid.citizen+paotangid.fullname_th+paotangid.fullname_en+paotangid.mobile+paotangid.email",
+      "openid+offline+paotangid.citizen+paotangid.fullname_th+paotangid.fullname_en+paotangid.mobile",
       //callback function for success
       (authorizationCode: string) => {
         /*
@@ -61,6 +61,7 @@ export default function Init() {
   return (
       <div className="w-full h-screen flex flex-col justify-center items-center">
           <div>Client ID: "78bbe546-b209-4667-9f40-49e3a1f6c1e6"</div>
+          <div>Scope: "openid+offline+paotangid.citizen+paotangid.fullname_th+paotangid.fullname_en+paotangid.mobile"</div>
           {status.isLoaded ? (
               <Image
                   className="animate-spin"
